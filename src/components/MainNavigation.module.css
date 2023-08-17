@@ -4,6 +4,7 @@
   padding: 2rem;
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
   /* justify-content: center; */
 }
 
@@ -31,4 +32,10 @@
 .list a.active {
   background-color: #f9c762;
   color: #242424;
+}
+
+.list button{
+  margin-top: -7px;
+  margin-right: 1px;
+  height: 38px;
 }

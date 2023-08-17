@@ -1,6 +1,7 @@
 import { Form, useActionData, useNavigate, useNavigation, json, redirect } from 'react-router-dom';
 
 import classes from './EventForm.module.css';
+import { getAuthToken } from '../util/auth';
 
 function EventForm({ method, event }) {
   const data = useActionData();
@@ -88,10 +89,12 @@ export const action = async ({ request, params }) => {
     return url = 'http://localhost:8080/events/' + eventId
   }
 
+  const token = getAuthToken();
   const response = await fetch(url, {
     method: method,
     headers: {
-      'Content-type': 'application/json'
+      'Content-type': 'application/json',
+      'Authorization': 'Bearer ' + token
     },
     body: JSON.stringify(eventData)
   })

@@ -1,4 +1,4 @@
-import { Link, useRouteError } from "react-router-dom";
+import { useRouteError } from "react-router-dom";
 import MainNavigation from "../components/MainNavigation";
 import PageContent from "../components/PageContent";
 
@@ -20,9 +20,9 @@ const ErrorPage = () => {
   return (
     <>
     <MainNavigation />
-    <PageContent title={title}/>
+    <PageContent title={title}>
     <p>{message}</p>
-    <Link to='/'>HOME</Link>
+    </PageContent>
     </>
   )
 }

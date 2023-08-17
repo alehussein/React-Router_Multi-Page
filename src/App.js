@@ -9,6 +9,8 @@ import ErrorPage from './pages/Error';
 import EventRootLayout from './pages/EventsRoot';
 import { action as actionEventForm } from './components/EventForm';
 import NewsletterPage, { action as newsletterAction } from './pages/Newsletter';
+import AuthenticationPage, { action as authAction } from './pages/Authentication';
+import { action as logoutAction } from './pages/Logout';
 
 const route = createBrowserRouter([
   {
@@ -17,6 +19,11 @@ const route = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <HomePage /> },
+      {
+        path: 'auth',
+        element: <AuthenticationPage />,
+        action: authAction,
+      },
       {
         path: 'events', element: <EventRootLayout />,
         children: [
@@ -55,7 +62,10 @@ const route = createBrowserRouter([
         element: <NewsletterPage />,
         action: newsletterAction,
       },
-
+      {
+        path: 'logout',
+        action: logoutAction
+      }
     ]
   }
 ])
